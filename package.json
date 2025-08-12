@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "pnpm --filter docs docs:dev",
+    "build": "pnpm --filter @vue3-ui/components build",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "prepare": "husky"
   },
