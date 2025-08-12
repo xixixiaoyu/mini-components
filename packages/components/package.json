@@ -11,19 +11,19 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/es/index.d.ts",
       "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/es/index.d.ts"
+      "require": "./dist/lib/index.js"
     },
     "./es/*": {
-      "import": "./dist/es/*.js",
-      "types": "./dist/es/*.d.ts"
+      "types": "./dist/es/*.d.ts",
+      "import": "./dist/es/*.js"
     },
     "./lib/*": {
-      "require": "./dist/lib/*.js",
-      "types": "./dist/lib/*.d.ts"
+      "types": "./dist/lib/*.d.ts",
+      "require": "./dist/lib/*.js"
     },
-    "*/style.css": "./dist/es/*/style.css"
+    "./dist/es/*/style.css": "./dist/es/*/style.css"
   },
   "scripts": {
     "build": "vite build"

@@ -4,6 +4,7 @@ import dts from 'vite-plugin-dts';
 import { readdirSync } from 'fs';
 import { resolve } from 'path';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import type { Plugin } from 'vite';
 
 // 获取所有组件目录
 const componentDirs = readdirSync(resolve(__dirname, 'src'), { withFileTypes: true })
@@ -52,12 +53,12 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(),
+    vue() as Plugin,
     dts({ 
       outDir: ['dist/es', 'dist/lib'],
       // 指定生成类型声明的入口文件
       entryRoot: 'src',
-    }),
-    libInjectCss(),
+    }) as Plugin,
+    libInjectCss() as Plugin,
   ],
 });
