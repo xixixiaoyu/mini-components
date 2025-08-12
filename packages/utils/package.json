@@ -1,12 +1,17 @@
 {
   "name": "@vue3-ui/utils",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Common utilities for vue3-ui",
+  "main": "./dist/utils.umd.js",
+  "module": "./dist/utils.es.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build"
   },
-  "keywords": [],
+  "keywords": [
+    "vue3-ui",
+    "utils"
+  ],
   "author": "",
   "license": "ISC"
 }

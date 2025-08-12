@@ -2,9 +2,10 @@
   "name": "@vue3-ui/components",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/vue3-ui.cjs.js",
-  "module": "dist/vue3-ui.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/vue3-ui.umd.js",
+  "module": "./dist/vue3-ui.es.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "scripts": {
     "build": "vite build"
   },

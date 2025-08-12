@@ -1,4 +1,4 @@
-import VButton from './src/Button/VButton.vue';
-import VIcon from './src/Icon/VIcon.vue';
+import './src/styles/variables.css';
 
-export { VButton, VIcon };
+export { default as VButton } from './src/Button/VButton.vue';
+export { default as VIcon } from './src/Icon/VIcon.vue';

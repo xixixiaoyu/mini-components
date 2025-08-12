@@ -69,13 +69,69 @@ const buttonClasses = computed(() => [
   justify-content: center;
   padding: 0 15px;
   height: 32px;
-  border-radius: 4px;
-  border: 1px solid #dcdfe6;
-  background-color: #fff;
-  color: #606266;
-  font-size: 14px;
-  font-size: 16px;
-  margin: 4px 2px;
+  border-radius: var(--v-border-radius);
+  border: 1px solid var(--v-border-color);
+  background-color: var(--v-color-white);
+  color: var(--v-text-color-regular);
+  font-size: var(--v-font-size-medium);
   cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.v-button.is-disabled,
+.v-button.is-disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Types */
+.v-button--primary {
+  background-color: var(--v-color-primary);
+  border-color: var(--v-color-primary);
+  color: var(--v-color-white);
+}
+.v-button--success {
+  background-color: var(--v-color-success);
+  border-color: var(--v-color-success);
+  color: var(--v-color-white);
+}
+.v-button--warning {
+  background-color: var(--v-color-warning);
+  border-color: var(--v-color-warning);
+  color: var(--v-color-white);
+}
+.v-button--danger {
+  background-color: var(--v-color-danger);
+  border-color: var(--v-color-danger);
+  color: var(--v-color-white);
+}
+.v-button--dashed {
+  border-style: dashed;
+}
+
+/* Sizes */
+.v-button--large {
+  height: 40px;
+  padding: 0 20px;
+  font-size: var(--v-font-size-large);
+}
+.v-button--small {
+  height: 28px;
+  padding: 0 10px;
+  font-size: var(--v-font-size-small);
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

@@ -1,0 +1,23 @@
+:root {
+  /* Colors */
+  --v-color-primary: #409eff;
+  --v-color-success: #67c23a;
+  --v-color-warning: #e6a23c;
+  --v-color-danger: #f56c6c;
+  --v-color-info: #909399;
+  --v-color-white: #ffffff;
+  --v-color-black: #000000;
+
+  /* Border */
+  --v-border-color: #dcdfe6;
+  --v-border-radius: 4px;
+
+  /* Text */
+  --v-text-color-primary: #303133;
+  --v-text-color-regular: #606266;
+
+  /* Font Size */
+  --v-font-size-medium: 14px;
+  --v-font-size-large: 16px;
+  --v-font-size-small: 12px;
+}
