@@ -23,7 +23,13 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Components',
+        text: '指南',
+        items: [
+          { text: '教程', link: '/guide/tutorial' }
+        ]
+      },
+      {
+        text: '组件',
         items: [
           { text: 'Button', link: '/components/button' },
           { text: 'Icon', link: '/components/icon' }
