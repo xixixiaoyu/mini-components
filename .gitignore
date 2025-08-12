@@ -111,9 +111,14 @@ dist
 dist-ssr
 
 # VitePress cache and temp files
-.vitepress/cache
-.vitepress/dist
-.vitepress/temp
+.vitepress/cache/
+.vitepress/dist/
+.vitepress/temp/
+.vitepress/.cache/
+.vitepress/.temp/
+**/.vitepress/cache/**
+**/.vitepress/dist/**
+**/.vitepress/temp/**
 
 # IDE config
 .idea

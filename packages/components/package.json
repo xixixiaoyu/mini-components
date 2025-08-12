@@ -2,10 +2,28 @@
   "name": "@vue3-ui/components",
   "version": "1.0.1",
   "description": "",
-  "main": "./dist/vue3-ui.umd.js",
-  "module": "./dist/vue3-ui.es.js",
-  "types": "./dist/index.d.ts",
-  "style": "./dist/style.css",
+  "main": "dist/lib/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/es/index.d.ts"
+    },
+    "./es/*": {
+      "import": "./dist/es/*.js",
+      "types": "./dist/es/*.d.ts"
+    },
+    "./lib/*": {
+      "require": "./dist/lib/*.js",
+      "types": "./dist/lib/*.d.ts"
+    },
+    "*/style.css": "./dist/es/*/style.css"
+  },
   "scripts": {
     "build": "vite build"
   },
