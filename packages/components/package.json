@@ -1,0 +1,17 @@
+{
+  "name": "@vue3-ui/components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/vue3-ui.cjs.js",
+  "module": "dist/vue3-ui.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1"
+  }
+}
