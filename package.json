@@ -8,6 +8,11 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish",
     "prepare": "husky"
   },
   "keywords": [],
@@ -17,6 +22,8 @@
     "*.{vue,js,ts,jsx,tsx}": "eslint --fix"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.5",
     "@eslint/js": "^9.33.0",
     "@typescript-eslint/eslint-plugin": "^8.39.1",
     "@typescript-eslint/parser": "^8.39.1",
@@ -36,6 +43,7 @@
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
     "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^3.2.4",
     "vue": "^3.5.18"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@vue3-ui/utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Common utilities for vue3-ui",
   "main": "./dist/utils.umd.js",
   "module": "./dist/utils.es.js",

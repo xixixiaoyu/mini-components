@@ -1,6 +1,6 @@
 {
   "name": "@vue3-ui/components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./dist/vue3-ui.umd.js",
   "module": "./dist/vue3-ui.es.js",

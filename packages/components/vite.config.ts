@@ -1,43 +1,63 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
+import { readdirSync } from 'fs';
+import { resolve } from 'path';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
+
+// 获取所有组件目录
+const componentDirs = readdirSync(resolve(__dirname, 'src'), { withFileTypes: true })
+  .filter(dirent => dirent.isDirectory() && dirent.name !== 'styles')
+  .map(dirent => dirent.name);
+
+// 为每个组件生成一个入口
+const componentEntries = componentDirs.reduce((entries: { [key: string]: string }, dir) => {
+  entries[dir] = resolve(__dirname, `src/${dir}/index.ts`);
+  return entries;
+}, {});
 
 export default defineConfig({
   build: {
-    // 打包后存放的目录文件
     outDir: 'dist',
-    // 输出的库的格式
     lib: {
-      entry: './index.ts',
-      name: 'Vue3UI',
-      fileName: 'vue3-ui',
-    },
-    // 自定义构建配置，可直接调整底层 Rollup 选项
-    rollupOptions: {
-      // 排除无需打包的依赖
-      external: ['vue'],
-      output: {
-        // 全局变量，在 UMD 构建中定义，用于在浏览器中访问
-        globals: {
-          vue: 'Vue',
-        },
-        // 指定JS文件的输出文件名
-        entryFileNames: 'vue3-ui.js',
-        // 指定代码分割时生成的 chunk 的文件名
-        chunkFileNames: 'chunks/[name]-[hash].js',
-        // 指定静态资源（如 CSS）的输出文件名
-        assetFileNames: (assetInfo) => {
-          // 这里是关键：确保 CSS 文件名是固定的
-          if (assetInfo.name?.endsWith('.css')) {
-            return 'style.css';
-          }
-          return 'assets/[name]-[hash].[ext]';
-        },
+      entry: {
+        ...componentEntries,
+        index: resolve(__dirname, 'index.ts'), // 保留主入口
       },
+      name: 'Vue3UI',
+      // 输出格式将由 rollupOptions.output.format 控制
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: [
+        {
+          format: 'es',
+          dir: 'dist/es',
+          entryFileNames: '[name].js',
+          chunkFileNames: 'chunks/[name]-[hash].js',
+          // 保留原始目录结构
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+        },
+        {
+          format: 'cjs',
+          dir: 'dist/lib',
+          entryFileNames: '[name].js',
+          chunkFileNames: 'chunks/[name]-[hash].js',
+          // 保留原始目录结构
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+        },
+      ],
     },
   },
   plugins: [
     vue(),
-    dts({ insertTypesEntry: true }),
+    dts({ 
+      outDir: ['dist/es', 'dist/lib'],
+      // 指定生成类型声明的入口文件
+      entryRoot: 'src',
+    }),
+    libInjectCss(),
   ],
 });
